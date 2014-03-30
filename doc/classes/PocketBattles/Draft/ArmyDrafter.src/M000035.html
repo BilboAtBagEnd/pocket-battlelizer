@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>reserve_seed_units (PocketBattles::Draft::ArmyDrafter)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File draft.rb, line 283</span>
+            <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reserve_seed_units</span>
+                <span class="ruby-identifier">troop_refs_seeded</span> = (<span class="ruby-ivar">@open_units</span>.<span class="ruby-identifier">inject</span>([]) {<span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-identifier">memo</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">troops</span>}).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">reference</span>}
+                <span class="ruby-ivar">@troops</span>.<span class="ruby-identifier">reject!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">troop_refs_seeded</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">reference</span> }
+                <span class="ruby-ivar">@points_left</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">sum_points</span>(<span class="ruby-ivar">@open_units</span>)
+                <span class="ruby-ivar">@troops</span>.<span class="ruby-identifier">shuffle!</span>
+            <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

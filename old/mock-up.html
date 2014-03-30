@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <style type="text/css">
+      th, td { text-align: left; vertical-align: top; padding: 4px; }
+      th { font-weight: normal; }
+      label { font-weight: bold; }
+    </style>
+  </head>
+  <body>
+
+    <form method="get">
+
+      <table>
+        <tr>
+          <th><label>Faction:</label></th>
+          <td>
+            <select name="faction">
+              <option value="">Select one</option>
+              <option value="Celts">Celts</option>
+              <option value="Elves">Elves</option>
+              <option value="Orcs">Orcs</option>
+              <option value="Romans">Romans</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <th><label>Points:</label></th>
+          <td>
+            <input type="text" name="points" value="60" />
+          </td>
+        </tr>
+
+        <!--
+        <tr>
+          <th><label>Seed Units:</label> <br/>
+            Initial units (full, or partial to be possibly filled out by the drafter)
+            to start off with. 
+            <br />
+            Use troop references: [full army name]-[unit number] to specify a troop. 
+            Example: Celts-05
+            <br />
+            Use commas to separate multiple troops in a single unit.
+            Example: Celts-05, Celts-13
+          </th>
+          <td>
+            <input type="text" name="seed_units" /> <br />
+            <input type="text" name="seed_units" /><br />
+            <input type="text" name="seed_units" /><br />
+            <input type="text" name="seed_units" /><br />
+            <input type="text" name="seed_units" />
+          </td>
+        </tr>
+        -->
+
+        <tr>
+          <td><input type="submit" /></td>
+        </tr>
+      </table>
+    </form>
+
+    Explanation of output:
+    <br />
+    <br />
+    Each line has id, troop name(s), and consolidated unit statistics. 
+    <ul>
+      <li> (N) = total deployment points
+      <li> [N] = minimum of the formation points amongst troops in unit
+      <li> !N! = total wounds
+      <li> sN1-N2-N3-N4 = shooting (white) dice N1, N2, N3, N4
+      <li> eN1-N2-N3-N4 = engagement (black) dice N1, N2, N3, N4
+      <li> {power} = comma-separated list of powers across all troops in unit
+    </ul>
+
+    <table>
+      <tr>
+        <th colspan="2">Elves: 7 units, 60 points</th>
+      </tr>
+      <tr>
+        <td>#3 Chariot</td><td>(7)[1]!2! e4-5-6 {Fast, Impetus, Overwhelming}</td>
+      </tr>
+      <tr>
+        <td> #5 Champion, #18 Elite Archers, #19 Elite Archers, #23 Archers</td><td>(17)[4]!4! s2-3-3-4-4-5-6-6 {+1 Engagement, +1 Shooting}</td>
+      </tr>
+      <tr>
+        <td> #6 Hero</td><td>(6)[1]!1! s4-5-6 {+2 Shooting, Reactive}</td>
+      </tr>
+      <tr>
+        <td> #8 Wood Pack, #14 Mounted Guard, #28 Spearmen</td><td>(10)[3]!4! e4-4-5-5-6-6 {+1 Engagement, Slow}</td>
+      </tr>
+      <tr>
+        <td> #10 Pathfinders, #13 Mounted Guard, #16 Elven Does</td><td>(12)[3]!3! e2-3-5-5-6-6-6 {Fast, Scout}</td>
+      </tr>
+      <tr>
+        <td> #22 Archers, #24 Archers</td><td>(6)[4]!2! s2-4-5-6</td>
+      </tr>
+      <tr>
+        <td> #26 Spearmen</td><td>(2)[4]!1! e2-3</td>
+      </tr>
+    </table>
+
+  </body>
+</html>

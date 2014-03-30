@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>draft (PocketBattles::Draft::StupidDraft)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File draft-1.0.rb, line 92</span>
+            <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">draft</span> 
+                <span class="ruby-identifier">skipped_units</span> = []
+                <span class="ruby-identifier">aux_units</span> = <span class="ruby-ivar">@units</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">powers</span>.<span class="ruby-identifier">include?</span> <span class="ruby-value str">'Auxiliary'</span> }
+                <span class="ruby-identifier">units</span> = <span class="ruby-ivar">@units</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">powers</span>.<span class="ruby-identifier">include?</span> <span class="ruby-value str">'Auxiliary'</span> }
+
+                <span class="ruby-identifier">aux_units</span>.<span class="ruby-identifier">shuffle!</span>
+                <span class="ruby-identifier">units</span>.<span class="ruby-identifier">shuffle!</span>
+
+                <span class="ruby-identifier">formations</span> = <span class="ruby-constant">DraftedArmy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@army_name</span>)
+                <span class="ruby-identifier">current_formation</span> = []
+                <span class="ruby-identifier">current_formation_value_min</span> = <span class="ruby-constant">STARTING_FORMATION_VALUE</span>
+                <span class="ruby-identifier">current_total_wounds</span> = <span class="ruby-value">0</span>
+
+                <span class="ruby-comment cmt"># We assume that if we have any aux units, we'll use them</span>
+                <span class="ruby-identifier">points_left</span> = <span class="ruby-ivar">@army_points</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">aux_units</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>,<span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">points</span> })
+
+                <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">points_left</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+                    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">units</span>.<span class="ruby-identifier">empty?</span> 
+                        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">skipped_units</span>.<span class="ruby-identifier">empty?</span> 
+                            <span class="ruby-keyword kw">break</span>
+                        <span class="ruby-keyword kw">elsif</span> (<span class="ruby-identifier">skipped_units</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>,<span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">wounds</span> }) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+                            <span class="ruby-keyword kw">break</span>
+                        <span class="ruby-keyword kw">else</span>
+                            <span class="ruby-identifier">units</span> = <span class="ruby-identifier">skipped_units</span>.<span class="ruby-identifier">shuffle</span>
+                            <span class="ruby-identifier">skipped_units</span> = []
+                        <span class="ruby-keyword kw">end</span>
+                    <span class="ruby-keyword kw">end</span>
+
+                    <span class="ruby-identifier">unit</span> = <span class="ruby-identifier">units</span>.<span class="ruby-identifier">shift</span>
+                    <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">unit</span> 
+
+                    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">unit</span>.<span class="ruby-identifier">powers</span>.<span class="ruby-identifier">include?</span> <span class="ruby-value str">'Auxiliary'</span>
+                        <span class="ruby-identifier">aux_units</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">unit</span>
+                        <span class="ruby-keyword kw">next</span>
+                    <span class="ruby-keyword kw">end</span>
+
+                    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Current formation: #{current_formation.join(',')}&quot;</span> 
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Processing #{unit}&quot;</span>
+                    <span class="ruby-keyword kw">end</span>
+
+                    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">points_left</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">unit</span>.<span class="ruby-identifier">points</span> 
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Can't fit unit into #{points_left} points left, dropping&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                        <span class="ruby-keyword kw">next</span>
+
+                    <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">points_left</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">unit</span>.<span class="ruby-identifier">points</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> 
+                        <span class="ruby-comment cmt">#units &lt;&lt; unit</span>
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Only #{points_left} points left: skipping&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                        <span class="ruby-identifier">skipped_units</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">unit</span>
+                        <span class="ruby-keyword kw">next</span>
+
+                    <span class="ruby-keyword kw">elsif</span> ((<span class="ruby-identifier">current_formation</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_formation_value_min</span>) <span class="ruby-operator">||</span> 
+                          (<span class="ruby-identifier">current_formation</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">unit</span>.<span class="ruby-identifier">formation</span>) 
+
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Would exceed formation value #{current_formation_value_min}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+
+                        <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">current_total_wounds</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span>) 
+                            <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Cannot end formation because not enough wounds in formation; skipping unit&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                            <span class="ruby-identifier">skipped_units</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">unit</span>
+                            <span class="ruby-keyword kw">next</span>
+                        <span class="ruby-keyword kw">end</span>
+
+                        <span class="ruby-identifier">formations</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current_formation</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">current_formation</span>.<span class="ruby-identifier">empty?</span>
+                        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                            <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Creating new formation&quot;</span>
+                            <span class="ruby-identifier">puts</span> <span class="ruby-identifier">formations</span>.<span class="ruby-identifier">pretty_print</span>
+                        <span class="ruby-keyword kw">end</span>
+                        <span class="ruby-identifier">current_formation</span> = []
+                        <span class="ruby-identifier">current_formation_value_min</span> = <span class="ruby-constant">STARTING_FORMATION_VALUE</span>
+                        <span class="ruby-identifier">current_total_wounds</span> = <span class="ruby-value">0</span>
+                    <span class="ruby-keyword kw">end</span>
+
+                    <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">current_formation</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">unit</span>.<span class="ruby-identifier">wounds</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span>) 
+                        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Will not create formation with initial unit wounds=0, skipping&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                        <span class="ruby-identifier">skipped_units</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">unit</span>
+                        <span class="ruby-keyword kw">next</span>
+                    <span class="ruby-keyword kw">end</span>
+
+                    <span class="ruby-identifier">current_formation</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">unit</span> 
+                    <span class="ruby-identifier">current_formation_value_min</span> = <span class="ruby-identifier">unit</span>.<span class="ruby-identifier">formation</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">unit</span>.<span class="ruby-identifier">formation</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">current_formation_value_min</span>
+                    <span class="ruby-identifier">current_total_wounds</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">unit</span>.<span class="ruby-identifier">wounds</span>
+
+                    <span class="ruby-identifier">points_left</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">unit</span>.<span class="ruby-identifier">points</span>
+                <span class="ruby-keyword kw">end</span>
+
+                <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current_formation</span> 
+                    <span class="ruby-identifier">formations</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current_formation</span>
+                <span class="ruby-keyword kw">end</span>
+
+                <span class="ruby-comment cmt"># Slightly smrt handling of auxiliary units.</span>
+
+                <span class="ruby-comment cmt"># Sprinkle in auxiliary units, focusing on units with formation value 1 and wounds 1</span>
+                <span class="ruby-identifier">formations</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+                    <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">aux_units</span>.<span class="ruby-identifier">empty?</span> 
+                    <span class="ruby-identifier">f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">aux_units</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">f</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">f</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">formation</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">f</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">wounds</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>)
+                <span class="ruby-keyword kw">end</span>
+                <span class="ruby-comment cmt"># If aux left, focus next on units with formation value 1 and any wounds</span>
+                <span class="ruby-identifier">formations</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+                    <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">aux_units</span>.<span class="ruby-identifier">empty?</span> 
+                    <span class="ruby-identifier">f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">aux_units</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">f</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">f</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">formation</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>)
+                <span class="ruby-keyword kw">end</span>
+                <span class="ruby-comment cmt"># If aux left, add to any other units without an aux</span>
+                <span class="ruby-identifier">formations</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> 
+                    <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">aux_units</span>.<span class="ruby-identifier">empty?</span> 
+                    <span class="ruby-identifier">f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">aux_units</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword kw">unless</span> (<span class="ruby-identifier">f</span>.<span class="ruby-identifier">inject</span>([]) { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span>, <span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">powers</span>  }).<span class="ruby-identifier">include?</span> <span class="ruby-value str">'Auxiliary'</span>
+                <span class="ruby-keyword kw">end</span>
+
+                <span class="ruby-identifier">formations</span>
+            <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

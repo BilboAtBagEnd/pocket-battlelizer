@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>skip_troop? (PocketBattles::Draft::Romans)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File draft.rb, line 479</span>
+            <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">skip_troop?</span> <span class="ruby-identifier">troop</span>
+                <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">is_catapult_troop?</span> <span class="ruby-identifier">troop</span>
+                    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{troop} is a catapult!&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                    <span class="ruby-identifier">existing_catapults</span> = ((<span class="ruby-ivar">@open_units</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@army</span>.<span class="ruby-identifier">units</span>).<span class="ruby-identifier">inject</span>([]) { <span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-identifier">memo</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">troops</span>}).<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">is_catapult_troop?</span> <span class="ruby-identifier">t</span> }
+                    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Existing catapults: #{existing_catapults}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                    (<span class="ruby-identifier">existing_catapults</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@number_catapults</span>
+                <span class="ruby-keyword kw">else</span> 
+                    <span class="ruby-keyword kw">super</span> 
+                <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

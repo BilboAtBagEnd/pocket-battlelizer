@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>draft (PocketBattles::Draft::ArmyDrafter)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File draft.rb, line 292</span>
+            <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">draft</span> 
+                <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@army</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@army</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Starting with #{@points_left} points&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+
+                <span class="ruby-keyword kw">case</span> <span class="ruby-ivar">@strategy</span>
+
+                <span class="ruby-comment cmt"># Very stupid draft that only picks individual troops</span>
+                <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Strategy</span><span class="ruby-operator">::</span><span class="ruby-constant">STUPID</span>
+                    <span class="ruby-ivar">@troops</span>.<span class="ruby-identifier">shuffle!</span>
+                    <span class="ruby-keyword kw">while</span> <span class="ruby-ivar">@points_left</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+                        <span class="ruby-identifier">u</span> = <span class="ruby-ivar">@troops</span>.<span class="ruby-identifier">shift</span>
+                        <span class="ruby-ivar">@army</span>.<span class="ruby-identifier">add_unit</span>(<span class="ruby-constant">Unit</span>.<span class="ruby-identifier">new</span>([<span class="ruby-identifier">u</span>]))
+                        <span class="ruby-ivar">@points_left</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">points</span>
+                    <span class="ruby-keyword kw">end</span>
+
+                <span class="ruby-comment cmt"># Slightly smarter draft that creates units with first-found compatible troops</span>
+                <span class="ruby-comment cmt"># See also class comment. </span>
+                <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Strategy</span><span class="ruby-operator">::</span><span class="ruby-constant">COMPATIBLE</span>
+
+                    <span class="ruby-identifier">seed_open_units</span>
+                    <span class="ruby-comment cmt"># Now modify other variables to take into account removing troops in opening unit(s)</span>
+                    <span class="ruby-comment cmt"># from drafting consideration</span>
+                    <span class="ruby-identifier">reserve_seed_units</span>
+
+                    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                        <span class="ruby-identifier">debug_draft_status</span>
+                    <span class="ruby-keyword kw">end</span>
+
+                    <span class="ruby-keyword kw">while</span> (<span class="ruby-ivar">@points_left</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-keyword kw">and</span> (<span class="ruby-keyword kw">not</span> <span class="ruby-ivar">@troops</span>.<span class="ruby-identifier">empty?</span>)
+                        <span class="ruby-identifier">t</span> = <span class="ruby-ivar">@troops</span>.<span class="ruby-identifier">shift</span>
+
+                        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{@points_left} points left: Considering troop #{t}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+
+                        <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">t</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>) <span class="ruby-keyword kw">or</span> (<span class="ruby-ivar">@points_left</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">points</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>) <span class="ruby-keyword kw">or</span> (<span class="ruby-identifier">skip_troop?</span> <span class="ruby-identifier">t</span>)
+
+
+                        <span class="ruby-comment cmt"># Try to find an open unit to add this troop to...</span>
+                        <span class="ruby-identifier">added_troop_to_unit</span> = <span class="ruby-keyword kw">nil</span>
+                        <span class="ruby-ivar">@open_units</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span>
+                            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Considering putting #{t} in #{u}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                            <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">can_add_troop?</span> <span class="ruby-identifier">t</span>
+                                <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Can't add to unit&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                                <span class="ruby-keyword kw">next</span>
+                            <span class="ruby-keyword kw">end</span>
+                            <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">u</span>.<span class="ruby-identifier">can_add_troop?</span> <span class="ruby-identifier">t</span>) <span class="ruby-keyword kw">and</span> (<span class="ruby-identifier">is_adding_troop_to_unit_smart?</span> <span class="ruby-identifier">u</span>, <span class="ruby-identifier">t</span>)
+                                <span class="ruby-identifier">u</span>.<span class="ruby-identifier">add_troop</span>(<span class="ruby-identifier">t</span>)
+                                <span class="ruby-identifier">added_troop_to_unit</span> = <span class="ruby-identifier">u</span>
+                                <span class="ruby-keyword kw">break</span>
+                            <span class="ruby-keyword kw">end</span>
+                        <span class="ruby-keyword kw">end</span>
+                        <span class="ruby-comment cmt"># ... otherwise add it to open units as its own unit.</span>
+                        <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">added_troop_to_unit</span>
+                            <span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;No smart unit to add troop to, &quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">recycle_troop?</span> <span class="ruby-identifier">t</span>
+                                <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;recycling troop&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                                <span class="ruby-ivar">@troops</span>.<span class="ruby-identifier">insert</span>((<span class="ruby-identifier">rand</span> <span class="ruby-ivar">@troops</span>.<span class="ruby-identifier">size</span>)<span class="ruby-operator">+</span><span class="ruby-value">1</span>, <span class="ruby-identifier">t</span>)
+                                <span class="ruby-keyword kw">next</span>
+                            <span class="ruby-keyword kw">else</span>
+                                <span class="ruby-identifier">u</span> = <span class="ruby-constant">Unit</span>.<span class="ruby-identifier">new</span> [<span class="ruby-identifier">t</span>]
+                                <span class="ruby-ivar">@open_units</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">u</span>
+                                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;creating new unit #{u}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                            <span class="ruby-keyword kw">end</span>
+                        <span class="ruby-keyword kw">else</span>
+                            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Added to unit #{added_troop_to_unit}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                        <span class="ruby-keyword kw">end</span>
+
+                        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Successfully added troop.&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                        <span class="ruby-ivar">@points_left</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">points</span>
+
+                        <span class="ruby-comment cmt"># Clear out all full units from @open_units and </span>
+                        <span class="ruby-comment cmt"># put them into the army</span>
+                        <span class="ruby-identifier">full_units</span> = <span class="ruby-ivar">@open_units</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">is_full?</span>}
+                        <span class="ruby-ivar">@open_units</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">is_full?</span>}
+                        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">full_units</span>.<span class="ruby-identifier">empty?</span>
+                            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Moving to army from open_units: #{full_units.join(',')}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                            <span class="ruby-identifier">full_units</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@army</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">u</span>}
+                        <span class="ruby-keyword kw">end</span>
+
+                        <span class="ruby-identifier">debug_draft_status</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                    <span class="ruby-keyword kw">end</span>
+
+                    <span class="ruby-comment cmt"># If any units are left over, they're in the army now!</span>
+                    <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Merging open_units with army&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                    <span class="ruby-ivar">@open_units</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@army</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">u</span>}
+
+
+                <span class="ruby-comment cmt"># No other strategies known just yet</span>
+                <span class="ruby-keyword kw">else</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Can't handle strategy #{strategy} yet!&quot;</span>
+                <span class="ruby-keyword kw">end</span>
+
+                <span class="ruby-identifier">debug_draft_status</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+
+                <span class="ruby-keyword kw">begin</span> 
+                    <span class="ruby-ivar">@army</span>.<span class="ruby-identifier">validate</span>
+                <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Got invalid army: #{e}&quot;</span>
+                <span class="ruby-keyword kw">end</span>
+
+                <span class="ruby-ivar">@army</span>
+            <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,148 @@
+01:
+    name: Alexandros
+    engagement: 2-6
+    points: 8
+    formation: 3
+    wounds: 2
+    powers:
+    - Leader
+    - +1 Engagement
+02:
+    name: Standard Bearer
+    points: 4
+    formation: 4
+    powers:
+    - +1 Engagement
+    - +1 Shooting
+03:
+    name: Chiliarch
+    points: 4
+    formation: 4
+    powers:
+    - Reactive
+    - Fast
+04: 
+    name: Argyraspides
+    engagement: 3-4-5-6
+    points: 6
+    formation: 1
+    wounds: 2
+    powers: 
+    - Tough
+    - Reactive
+    - +1 Engagement
+05: 
+    name: Pezhetairoi
+    engagement: 3-4
+    points: 3
+    formation: 4
+    wounds: 1
+06:
+    name: Pezhetairoi
+    engagement: 3-6
+07:
+    name: Pezhetairoi
+    engagement: 4-5
+08:
+    name: Pezhetairoi
+    engagement: 5-6
+09:
+    name: Peltasts
+    engagement: 3-3
+    points: 2
+    formation: 3
+    wounds: 1
+10:
+    name: Peltasts
+    engagement: 4-4
+11: 
+    name: Peltasts
+    engagement: 5-5
+12:
+    name: Peltasts
+    engagement: 6-6
+13:
+    name: Hypaspistai
+    engagement: 3-4
+    points: 4
+    formation: 4
+    wounds: 1
+    powers:
+    - First Strike
+    - Slow
+14:
+    name: Hypaspistai
+    engagement: 5-6
+15:
+    name: Hypaspistai
+    engagement: 4-5
+16:
+    name: Hypaspistai
+    engagement: 3-6
+17:
+    name: Cretan Archers
+    shooting: 2-3
+    points: 3
+    formation: 4
+    wounds: 1
+18:
+    name: Cretan Archers
+    shooting: 3-4
+19:
+    name: Cretan Archers
+    shooting: 4-5
+20:
+    name: Cretan Archers
+    shooting: 5-6
+21:
+    name: Cretan Archers
+    shooting: 2-6
+22:
+    name: Prodromoi
+    engagement: 5-6
+    points: 5
+    formation: 2
+    wounds: 2
+    powers:
+    - Scout
+23:
+    name: Prodromoi
+    engagement: 3-4
+24: 
+    name: Agema
+    engagement: 6
+    points: 5
+    formation: 3
+    wounds: 2
+    powers:
+    - Sacrifice
+25:
+    name: Agrianes
+    engagement: 5
+    shooting: 5
+    points: 3
+    formation: 2
+    wounds: 1
+    powers:
+    - Skirmish
+26:
+    name: Agrianes
+    engagement: 6
+    shooting: 6
+27:
+    name: Hetairoi
+    engagement: 3-4
+    points: 5
+    formation: 3
+    wounds: 2
+    powers:
+    - Impetus
+28:
+    name: Hetairoi
+    engagement: 3-6
+29:
+    name: Hetairoi
+    engagement: 4-5
+30:
+    name: Hetairoi
+    engagement: 5-6

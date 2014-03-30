@@ -1,0 +1,151 @@
+01:
+    name: Darius
+    points: 5
+    formation: 4
+    wounds: 1
+    powers: 
+    - Prestige
+02:
+    name: Takabara
+    engagement: 4-4
+    points: 3
+    formation: 4
+    wounds: 1
+03:
+    name: Takabara
+    engagement: 5-5
+04:
+    name: Takabara
+    engagement: 6-6
+05:
+    name: Immortals
+    engagement: 4-4
+    points: 5
+    formation: 3
+    wounds: 1
+    powers: 
+    - +1 Engagement
+06:
+    name: Immortals
+    engagement: 5-5
+07:
+    name: Immortals
+    engagement: 6-6
+08:
+    name: Sparabara
+    engagement: 3
+    points: 4
+    formation: 4
+    wounds: 1
+    powers:
+    - Tough
+09:
+    name: Sparabara
+    engagement: 3
+10: 
+    name: Elephant
+    engagement: 5
+    points: 6
+    formation: 2
+    wounds: 3
+    powers:
+    - Slow
+    - Overwhelming
+    - +2 Engagement
+11:
+    name: Elephant
+    engagement: 6
+12: 
+    name: Kardaka
+    engagement: 4-5
+    points: 3
+    formation: 4
+    wounds: 1
+13: 
+    name: Kardaka
+    engagement: 5-6
+14:
+    name: Kardaka
+    engagement: 4-6
+15:
+    name: Baivarapatis
+    engagement: 2-3
+    points: 5
+    formation: 4
+    wounds: 1
+    powers:
+    - +1 Engagement
+16:
+    name: Standard Bearer
+    points: 4
+    formation: 4
+    wounds: 1
+    powers:
+    - +1 Wounds
+17:
+    name: Levies
+    engagement: 4
+    points: 2
+    formation: "*"
+    wounds: 1
+    powers:
+    - Auxiliary
+18:
+    name: Levies
+    engagement: 5
+19:
+    name: Levies
+    engagement: 6
+20:
+    name: Archers
+    shooting: 4
+    points: 3
+    formation: 3
+    wounds: 1
+    powers: 
+    - +1 Shooting
+21:
+    name: Archers
+    shooting: 5
+22:
+    name: Archers
+    shooting: 6
+23:
+    name: Archers
+    shooting: 4
+24:
+    name: Archers
+    shooting: 5
+25:
+    name: Archers
+    shooting: 6
+26:
+    name: Median Cavalry
+    engagement: 4-6
+    points: 4
+    formation: 4
+    wounds: 2
+27:
+    name: Median Cavalry
+    engagement: 5-6
+28:
+    name: Median Cavalry
+    engagement: 4-5
+29:
+    name: Scyted Chariot
+    engagement: 4-5-6
+    points: 6
+    formation: 1
+    wounds: 2
+    powers:
+    - Impetus
+    - Overwhelming
+30:
+    name: Chariot
+    engagement: 4-5-6
+    points: 6
+    formation: 1
+    wounds: 2
+    powers:
+    - Impetus
+    - Fast

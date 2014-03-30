@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: PocketBattles::Unit</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">PocketBattles::Unit</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/pocket-battles-1_0_rb.html">
+                pocket-battles-1.0.rb
+                </a>
+        <br />
+                <a href="../../files/pocket-battles-1_1_rb.html">
+                pocket-battles-1.1.rb
+                </a>
+        <br />
+                <a href="../../files/pocket-battles_rb.html">
+                pocket-battles.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Fields:
+</p>
+<pre>
+   troops - array of Troop objects part of this unit
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000061">add_troop</a>&nbsp;&nbsp;
+      <a href="#M000060">can_add_troop?</a>&nbsp;&nbsp;
+      <a href="#M000067">empty?</a>&nbsp;&nbsp;
+      <a href="#M000073">engagement_dice</a>&nbsp;&nbsp;
+      <a href="#M000057">fill_from_unit</a>&nbsp;&nbsp;
+      <a href="#M000052">fill_from_unit</a>&nbsp;&nbsp;
+      <a href="#M000056">has_all_info?</a>&nbsp;&nbsp;
+      <a href="#M000051">has_all_info?</a>&nbsp;&nbsp;
+      <a href="#M000065">has_aux_troop?</a>&nbsp;&nbsp;
+      <a href="#M000070">ignore_aux_troops</a>&nbsp;&nbsp;
+      <a href="#M000062">is_compatible_with_troop?</a>&nbsp;&nbsp;
+      <a href="#M000064">is_engagement_unit?</a>&nbsp;&nbsp;
+      <a href="#M000072">is_full?</a>&nbsp;&nbsp;
+      <a href="#M000063">is_shooting_unit?</a>&nbsp;&nbsp;
+      <a href="#M000071">min_formation_points</a>&nbsp;&nbsp;
+      <a href="#M000049">new</a>&nbsp;&nbsp;
+      <a href="#M000059">new</a>&nbsp;&nbsp;
+      <a href="#M000054">new</a>&nbsp;&nbsp;
+      <a href="#M000069">points</a>&nbsp;&nbsp;
+      <a href="#M000075">powers</a>&nbsp;&nbsp;
+      <a href="#M000050">reference</a>&nbsp;&nbsp;
+      <a href="#M000055">reference</a>&nbsp;&nbsp;
+      <a href="#M000074">shooting_dice</a>&nbsp;&nbsp;
+      <a href="#M000066">size</a>&nbsp;&nbsp;
+      <a href="#M000076">to_s</a>&nbsp;&nbsp;
+      <a href="#M000058">to_s</a>&nbsp;&nbsp;
+      <a href="#M000053">to_s</a>&nbsp;&nbsp;
+      <a href="#M000077">validate</a>&nbsp;&nbsp;
+      <a href="#M000068">wounds</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">army</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">army</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">engagement</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">engagement</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">formation</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">formation</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">number</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">number</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">points</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">points</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">powers</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">powers</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">shooting</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">shooting</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">troops</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">wounds</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">wounds</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000049.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000049.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(army, number, data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000059" class="method-detail">
+        <a name="M000059"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000059.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000059.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(troops = [])</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000054.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000054.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(army, number, data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000061" class="method-detail">
+        <a name="M000061"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000061.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000061.html');return false;">
+          <span class="method-name">add_troop</span><span class="method-args">(troop)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a troop. Does no checking.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000060" class="method-detail">
+        <a name="M000060"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000060.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000060.html');return false;">
+          <span class="method-name">can_add_troop?</span><span class="method-args">(troop)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+whether adding the given troop would violation unit build rules.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000067" class="method-detail">
+        <a name="M000067"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000067.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000067.html');return false;">
+          <span class="method-name">empty?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+whether this has any troops
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000073" class="method-detail">
+        <a name="M000073"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000073.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000073.html');return false;">
+          <span class="method-name">engagement_dice</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+engagement dice across all troops
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000057" class="method-detail">
+        <a name="M000057"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000057.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000057.html');return false;">
+          <span class="method-name">fill_from_unit</span><span class="method-args">(unit)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000052.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000052.html');return false;">
+          <span class="method-name">fill_from_unit</span><span class="method-args">(unit)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000056" class="method-detail">
+        <a name="M000056"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000056.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000056.html');return false;">
+          <span class="method-name">has_all_info?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000051.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000051.html');return false;">
+          <span class="method-name">has_all_info?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000065" class="method-detail">
+        <a name="M000065"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000065.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000065.html');return false;">
+          <span class="method-name">has_aux_troop?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+whether this unit has an auxiliary troop
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000070" class="method-detail">
+        <a name="M000070"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000070.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000070.html');return false;">
+          <span class="method-name">ignore_aux_troops</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+unit&#8216;s non-auxiliary troops
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000062" class="method-detail">
+        <a name="M000062"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000062.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000062.html');return false;">
+          <span class="method-name">is_compatible_with_troop?</span><span class="method-args">(troop)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+whether some troop in this unit is compatible with the given troop
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000064" class="method-detail">
+        <a name="M000064"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000064.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000064.html');return false;">
+          <span class="method-name">is_engagement_unit?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+whether this unit can engage by itself
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000072" class="method-detail">
+        <a name="M000072"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000072.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000072.html');return false;">
+          <span class="method-name">is_full?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+true if non-aux troops can no longer be added
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000063" class="method-detail">
+        <a name="M000063"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000063.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000063.html');return false;">
+          <span class="method-name">is_shooting_unit?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+whether this unit can shoot by itself
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000071" class="method-detail">
+        <a name="M000071"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000071.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000071.html');return false;">
+          <span class="method-name">min_formation_points</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+minimum formation value amongst troops
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000069" class="method-detail">
+        <a name="M000069"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000069.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000069.html');return false;">
+          <span class="method-name">points</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+total number of <a href="Unit.html#M000069">points</a> across troops
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000075" class="method-detail">
+        <a name="M000075"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000075.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000075.html');return false;">
+          <span class="method-name">powers</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Unit.html#M000075">powers</a> across all troops
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000050.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000050.html');return false;">
+          <span class="method-name">reference</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000055.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000055.html');return false;">
+          <span class="method-name">reference</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000074" class="method-detail">
+        <a name="M000074"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000074.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000074.html');return false;">
+          <span class="method-name">shooting_dice</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+shooting dice across all troops
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000066" class="method-detail">
+        <a name="M000066"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000066.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000066.html');return false;">
+          <span class="method-name">size</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+number of troops
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000076" class="method-detail">
+        <a name="M000076"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000076.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000076.html');return false;">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000058" class="method-detail">
+        <a name="M000058"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000058.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000058.html');return false;">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000053.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000053.html');return false;">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000077" class="method-detail">
+        <a name="M000077"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000077.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000077.html');return false;">
+          <span class="method-name">validate</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+raise exceptions if something is wrong with this unit
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000068" class="method-detail">
+        <a name="M000068"></a>
+
+        <div class="method-heading">
+          <a href="Unit.src/M000068.html" target="Code" class="method-signature"
+            onclick="popupCode('Unit.src/M000068.html');return false;">
+          <span class="method-name">wounds</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+total number of <a href="Unit.html#M000068">wounds</a> across troops
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/PocketBattles/Draft/DraftedArmy.html#M000043">_formation_to_s (PocketBattles::Draft::DraftedArmy)</a><br />
+    <a href="classes/PocketBattles/Draft/DraftedArmy.html#M000042">_unit_to_s (PocketBattles::Draft::DraftedArmy)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000061">add_troop (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000100">add_unit (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000030">adds_engagement_variety? (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000031">adds_shooting_variety? (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles.html#M000001">armies (PocketBattles)</a><br />
+    <a href="classes/PocketBattles.html#M000004">armies (PocketBattles)</a><br />
+    <a href="classes/PocketBattles.html#M000007">army (PocketBattles)</a><br />
+    <a href="classes/PocketBattles.html#M000003">army (PocketBattles)</a><br />
+    <a href="classes/PocketBattles.html#M000005">army_names (PocketBattles)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000060">can_add_troop? (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000032">debug_draft_status (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000036">draft (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles/Draft/StupidDraft.html#M000023">draft (PocketBattles::Draft::StupidDraft)</a><br />
+    <a href="classes/PocketBattles/Draft.html#M000013">draft_for (PocketBattles::Draft)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000102">empty? (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000067">empty? (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000073">engagement_dice (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000081">fill_from_troop (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000057">fill_from_unit (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000052">fill_from_unit (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles.html#M000009">get_all_faction_names (PocketBattles)</a><br />
+    <a href="classes/PocketBattles.html#M000008">get_all_factions (PocketBattles)</a><br />
+    <a href="classes/PocketBattles.html#M000011">get_faction (PocketBattles)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000056">has_all_info? (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000080">has_all_info? (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000051">has_all_info? (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles.html#M000002">has_army? (PocketBattles)</a><br />
+    <a href="classes/PocketBattles.html#M000006">has_army? (PocketBattles)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000065">has_aux_troop? (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000089">has_engagement_compatible_powers? (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles.html#M000010">has_faction? (PocketBattles)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000082">has_power? (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000088">has_shooting_compatible_powers? (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000070">ignore_aux_troops (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Draft/Celts.html#M000016">is_adding_troop_to_unit_smart? (PocketBattles::Draft::Celts)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000027">is_adding_troop_to_unit_smart? (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles/Draft/Orcs.html#M000047">is_adding_troop_to_unit_smart? (PocketBattles::Draft::Orcs)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000083">is_aux_troop? (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Draft/Romans.html#M000019">is_catapult_troop? (PocketBattles::Draft::Romans)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000084">is_combat_troop? (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000090">is_compatible_with_troop? (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000062">is_compatible_with_troop? (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000087">is_engagement_troop? (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000064">is_engagement_unit? (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles.html#M000012">is_faction? (PocketBattles)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000072">is_full? (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000086">is_shooting_troop? (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000063">is_shooting_unit? (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000085">is_support_troop? (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000071">min_formation_points (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Faction.html#M000111">min_troop_points (PocketBattles::Faction)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000097">min_unit_points (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000078">new (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000049">new (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Draft/StupidDraft.html#M000022">new (PocketBattles::Draft::StupidDraft)</a><br />
+    <a href="classes/PocketBattles/Faction.html#M000108">new (PocketBattles::Faction)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000059">new (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Draft/Orcs.html#M000046">new (PocketBattles::Draft::Orcs)</a><br />
+    <a href="classes/PocketBattles/Draft/CeltsFastGaesatae.html#M000024">new (PocketBattles::Draft::CeltsFastGaesatae)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000025">new (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles/Draft/Celts.html#M000014">new (PocketBattles::Draft::Celts)</a><br />
+    <a href="classes/PocketBattles/Draft/Elves.html#M000037">new (PocketBattles::Draft::Elves)</a><br />
+    <a href="classes/PocketBattles/Draft/Romans.html#M000017">new (PocketBattles::Draft::Romans)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000092">new (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000099">new (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000054">new (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000094">new (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Draft/DraftedArmy.html#M000040">new (PocketBattles::Draft::DraftedArmy)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000104">points (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000069">points (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000075">powers (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Draft/DraftedArmy.html#M000044">pretty_print (PocketBattles::Draft::DraftedArmy)</a><br />
+    <a href="classes/PocketBattles/Draft/Elves.html#M000039">recycle_troop? (PocketBattles::Draft::Elves)</a><br />
+    <a href="classes/PocketBattles/Draft/Romans.html#M000020">recycle_troop? (PocketBattles::Draft::Romans)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000033">recycle_troop? (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles/Draft/Celts.html#M000015">recycle_troop? (PocketBattles::Draft::Celts)</a><br />
+    <a href="classes/PocketBattles/Draft/Orcs.html#M000048">recycle_troop? (PocketBattles::Draft::Orcs)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000055">reference (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000050">reference (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000079">reference (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000035">reserve_seed_units (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles/Draft/Romans.html#M000018">reset (PocketBattles::Draft::Romans)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000026">reset (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000028">seed_open_units (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000074">shooting_dice (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000101">size (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000066">size (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Draft/Romans.html#M000021">skip_troop? (PocketBattles::Draft::Romans)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000034">skip_troop? (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles/Draft/Elves.html#M000038">skip_troop? (PocketBattles::Draft::Elves)</a><br />
+    <a href="classes/PocketBattles/Draft/ArmyDrafter.html#M000029">sum_points (PocketBattles::Draft::ArmyDrafter)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000105">to_s (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000058">to_s (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Troop.html#M000091">to_s (PocketBattles::Troop)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000053">to_s (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000098">to_s (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Faction.html#M000112">to_s (PocketBattles::Faction)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000076">to_s (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Draft/DraftedArmy.html#M000041">to_s (PocketBattles::Draft::DraftedArmy)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000106">to_summary (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Faction.html#M000109">troop_by_id (PocketBattles::Faction)</a><br />
+    <a href="classes/PocketBattles/Faction.html#M000110">troop_by_ref (PocketBattles::Faction)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000103">troops (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000093">unit (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000095">unit_by_id (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000096">unit_by_ref (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Draft/DraftedArmy.html#M000045">validate (PocketBattles::Draft::DraftedArmy)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000077">validate (PocketBattles::Unit)</a><br />
+    <a href="classes/PocketBattles/Army.html#M000107">validate (PocketBattles::Army)</a><br />
+    <a href="classes/PocketBattles/Unit.html#M000068">wounds (PocketBattles::Unit)</a><br />
+  </div>
+</div>
+</body>
+</html>

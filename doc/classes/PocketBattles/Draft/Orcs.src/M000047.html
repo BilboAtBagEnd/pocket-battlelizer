@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>is_adding_troop_to_unit_smart? (PocketBattles::Draft::Orcs)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File draft.rb, line 528</span>
+            <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_adding_troop_to_unit_smart?</span>(<span class="ruby-identifier">unit</span>, <span class="ruby-identifier">troop</span>)
+                <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">unit</span>.<span class="ruby-identifier">troops</span>.<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'Kobolds'</span>}
+                    <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Unit contains kobolds!&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+                    <span class="ruby-comment cmt"># Kobolds = canon fodder for troops that otherwise don't</span>
+                    <span class="ruby-comment cmt"># get to have fodder.</span>
+                    (<span class="ruby-ivar">@troops</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-keyword kw">or</span> ((<span class="ruby-identifier">troop</span>.<span class="ruby-identifier">formation</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>) <span class="ruby-keyword kw">and</span> 
+                                        (<span class="ruby-identifier">troop</span>.<span class="ruby-identifier">is_engagement_troop?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">troop</span>.<span class="ruby-identifier">is_shooting_troop?</span>))
+                <span class="ruby-keyword kw">else</span>
+                    <span class="ruby-keyword kw">super</span> <span class="ruby-identifier">unit</span>, <span class="ruby-identifier">troop</span>
+                <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

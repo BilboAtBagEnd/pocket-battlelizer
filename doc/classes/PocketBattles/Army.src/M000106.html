@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>to_summary (PocketBattles::Army)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File pocket-battles.rb, line 388</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_summary</span>(<span class="ruby-identifier">longer</span> = <span class="ruby-keyword kw">false</span>)
+            <span class="ruby-identifier">s</span> = <span class="ruby-node">&quot;&lt;Army #{self.size} units, #{self.points} points,\n&quot;</span>
+            (<span class="ruby-ivar">@units</span>.<span class="ruby-identifier">sort</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">a</span>.<span class="ruby-identifier">troops</span>.<span class="ruby-identifier">sort</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span>,<span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">reference</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">reference</span>})[<span class="ruby-value">0</span>].<span class="ruby-identifier">reference</span> <span class="ruby-operator">&lt;=&gt;</span> (<span class="ruby-identifier">b</span>.<span class="ruby-identifier">troops</span>.<span class="ruby-identifier">sort</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span>,<span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">reference</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">reference</span>})[<span class="ruby-value">0</span>].<span class="ruby-identifier">reference</span>}).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">' - '</span> 
+                <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> ((<span class="ruby-identifier">u</span>.<span class="ruby-identifier">troops</span>.<span class="ruby-identifier">sort</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">reference</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">reference</span>}).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;##{t.number} #{t.name}&quot;</span> }).<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>)
+                <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">longer</span>
+                    <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;: (#{u.points})[#{u.min_formation_points}]!#{u.wounds}!&quot;</span>
+                    <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; s#{u.shooting_dice.sort.join('-')}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">shooting_dice</span>.<span class="ruby-identifier">empty?</span>
+                    <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; e#{u.engagement_dice.sort.join('-')}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">engagement_dice</span>.<span class="ruby-identifier">empty?</span>
+                    <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; {#{u.powers.sort.join(', ')}}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">u</span>.<span class="ruby-identifier">powers</span>.<span class="ruby-identifier">empty?</span> 
+                <span class="ruby-keyword kw">end</span>
+                <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n&quot;</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">'&gt;'</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

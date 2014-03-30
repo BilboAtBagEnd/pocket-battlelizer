@@ -1,0 +1,151 @@
+01:
+    name: Imaginifer
+    points: 4
+    formation: 1
+    wounds: 1
+    powers:
+    - Excite
+02:
+    name: Aquilifer
+    points: 4
+    formation: 3
+    wounds: 1
+    powers:
+    - +1 Engagement
+    - +1 Shooting
+03:
+    name: Onager
+    shooting: 5-6
+    points: 5
+    formation: 1
+    wounds: 2
+    powers:
+    - Long Range
+    - +2 Wounds
+04:
+    name: Scorpio
+    shooting: 4-5-6
+    points: 5
+    formation: 1
+    wounds: 1
+    powers:
+    - Reactive
+    - +1 Shooting
+05:
+    name: Ballista
+    shooting: 5-6
+    points: 5
+    formation: 1
+    wounds: 2
+    powers:
+    - Wide Arc
+    - +1 Shooting
+    - Long Range
+06:
+    name: Centurion
+    shooting: 6
+    engagement: 6
+    points: 4
+    formation: 4
+    wounds: 1
+    powers:
+    - Reactive
+07:
+    name: Praetorians
+    engagement: 4-5-6
+    points: 4
+    formation: 4
+    wounds: 1
+08:
+    name: Praetorians
+    engagement: 2-5-6
+09: 
+    name: Praetorians
+    engagement: 3-5-6
+10:
+    name: Imperator
+    engagement: 4-5-6
+    points: 7
+    formation: 1
+    wounds: 1
+    powers:
+    - Double Order
+    - Leader
+11:
+    name: Auxiliares
+    engagement: 3-3
+    points: 2
+    formation: 3
+    wounds: 1
+12:
+    name: Auxiliares
+    engagement: 4-4
+13:
+    name: Auxiliares
+    engagement: 5-5
+14:
+    name: Auxiliares
+    engagement: 6-6
+15:
+    name: Legionaries
+    engagement: 2-4
+    points: 3
+    formation: 4
+    wounds: 1
+16:
+    name: Legionaries
+    engagement: 3-5
+17:
+    name: Legionaries
+    engagement: 4-6
+18:
+    name: Legionaries
+    engagement: 2-5
+19:
+    name: Legionaries
+    engagement: 3-6
+20:
+    name: Archers
+    shooting: 2-3
+    points: 3
+    formation: 4
+    wounds: 1
+21:
+    name: Archers
+    shooting: 3-4
+22:
+    name: Archers
+    shooting: 4-5
+23:
+    name: Archers
+    shooting: 2-6
+24:
+    name: Archers
+    shooting: 5-6
+25:
+    name: Cataphracts
+    engagement: 2-3-3
+    points: 5
+    formation: 3
+    wounds: 2
+    powers:
+    - Slow
+    - Impetus
+26:
+    name: Cataphracts
+    engagement: 4-5-5
+27: 
+    name: Cataphracts
+    engagement: 4-6-6
+28:
+    name: Cavalry
+    engagement: 4-5
+    points: 4
+    formation: 3
+    wounds: 2
+29:
+    name: Cavalry
+    engagement: 5-6
+30:
+    name: Cavalry
+    engagement: 3-6

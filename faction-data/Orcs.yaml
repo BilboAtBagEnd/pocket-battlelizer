@@ -1,0 +1,170 @@
+01:
+    name: Warlord
+    engagement: 2-6
+    points: 6
+    formation: 3
+    wounds: 1
+    powers:
+    - +2 Engagement
+02:
+    name: Shaman
+    points: 5
+    formation: 1
+    wounds: 1
+    powers:
+    - Galvanize
+    - Excite
+03:
+    name: Standard Bearer
+    points: 3
+    formation: 4
+    wounds: 1
+    powers:
+    - +1 Engagement
+04:
+    name: Chariot
+    engagement: 5-6
+    points: 5
+    formation: 1
+    wounds: 2
+    powers:
+    - Overwhelming
+    - +1 Engagement
+    - Impetus
+05: 
+    name: Fanatic
+    engagement: 4-5-6
+    points: 4
+    formation: 1
+    wounds: 1
+    powers:
+    - Blood Lust
+06:
+    name: Troll
+    engagement: 4-5-6
+    points: 6
+    formation: 1
+    wounds: 3
+    powers:
+    - Regenerate
+    - +2 Engagement
+    - Slow
+07:
+    name: Boulder Thrower
+    shooting: 5-6
+    points: 6
+    formation: 1
+    wounds: 2
+    powers:
+    - Blood Lust
+    - Wide Arc
+    - Long Range
+08:
+    name: Catapult
+    shooting: 4-5-6
+    points: 6
+    formation: 1
+    wounds: 2
+    powers:
+    - +1 Shooting
+    - Wide Arc
+    - Long Range
+09:
+    name: Bugbears
+    engagement: 3-3
+    points: 5
+    formation: 4
+    wounds: 2
+    powers:
+    - Impetus
+10:
+    name: Bugbears
+    engagement: 4-4
+11:
+    name: Bugbears
+    engagement: 5-5
+12:
+    name: Bugbears
+    engagement: 6-6
+13:
+    name: Hobgoblins
+    engagement: 5
+    points: 2
+    formation: 4
+    wounds: 2
+14:
+    name: Hobgoblins
+    engagement: 6
+15:
+    name: Gnolls
+    engagement: 5
+    points: 4
+    formation: 4
+    wounds: 1
+    powers:
+    - +1 Wounds
+16:
+    name: Gnolls
+    engagement: 6
+17:
+    name: Orcs
+    engagement: 3-4
+    points: 3
+    formation: 4
+    wounds: 1
+18:
+    name: Orcs
+    engagement: 4-5
+19:
+    name: Orcs
+    engagement: 5-6
+20:
+    name: Orcs
+    engagement: 3-6
+21:
+    name: Half Orcs
+    engagement: 3
+    shooting: 3-4
+    points: 3
+    formation: 3
+    wounds: 1
+22:
+    name: Half Orcs
+    engagement: 4
+    shooting: 4-5
+23:
+    name: Half Orcs
+    engagement: 5
+    shooting: 5-6
+24:
+    name: Half Orcs
+    engagement: 6
+    shooting: 3-6
+25:
+    name: Goblins
+    engagement: 3
+    shooting: 3
+    points: 2
+    formation: 4
+    wounds: 1
+26:
+    name: Goblins
+    engagement: 4
+    shooting: 4
+27:
+    name: Goblins
+    engagement: 5
+    shooting: 5
+28:
+    name: Goblins
+    engagement: 6
+    shooting: 6
+29:
+    name: Kobolds
+    points: 1
+    formation: "*"
+    wounds: 1
+    powers:
+    - Auxiliary
+30:
+    name: Kobolds

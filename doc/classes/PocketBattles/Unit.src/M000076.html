@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>to_s (PocketBattles::Unit)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File pocket-battles.rb, line 334</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+            <span class="ruby-node">&quot;&lt;Unit #{self.is_full? ? 'full' : ''} [#{self.min_formation_points}], troops = [#{((@troops.sort {|a,b| a.reference &lt;=&gt; b.reference}).map { |t| t.to_s }).join(', ')}]&gt;&quot;</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

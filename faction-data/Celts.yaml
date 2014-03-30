@@ -1,0 +1,155 @@
+01:
+    name: Druid
+    points: 6
+    formation: 1
+    wounds: 1
+    powers:
+    - Heal
+    - Excite
+02:
+    name: Warrior Queen
+    engagement: 4-5-6
+    points: 7
+    formation: 1
+    wounds: 2
+    powers:
+    - +1 Wounds
+    - Fast
+    - Impetus
+03:
+    name: Chariot
+    engagement: 5-6
+    points: 7
+    formation: 1
+    wounds: 2
+    powers:
+    - Overwhelming
+    - Fast
+    - Impetus
+04:
+    name: Hero
+    shooting: 4-5-6
+    points: 5
+    formation: 1
+    wounds: 1
+    powers:
+    - Reactive
+    - +1 Shooting
+05: 
+    name: Gaesatae
+    engagement: 5-6
+    points: 5
+    formation: 2
+    wounds: 1
+    powers:
+    - Overwhelming
+    - Fury
+06:
+    name: Gaesatae
+    engagement: 3-4
+07: 
+    name: Javelinmen
+    engagement: 3
+    shooting: 3
+    points: 2
+    formation: 4
+    wounds: 1
+08: 
+    name: Javelinmen
+    engagement: 4
+    shooting: 4
+09: 
+    name: Javelinmen
+    engagement: 6
+    shooting: 6
+10: 
+    name: Javelinmen
+    engagement: 5
+    shooting: 5
+11:
+    name: Champion
+    engagement: 2
+    shooting: 2
+    points: 5
+    formation: 4
+    wounds: 1
+    powers:
+    - Disband
+12:
+    name: Horsemen
+    engagement: 3-3
+    points: 5
+    formation: 2
+    wounds: 2
+    powers:
+    - Fast
+13: 
+    name: Horsemen
+    engagement: 4-4
+14: 
+    name: Horsemen
+    engagement: 5-5
+15:
+    name: Noble Cavalry
+    engagement: 3-4-4
+    points: 5
+    formation: 3
+    wounds: 2
+16:
+    name: Noble Cavalry
+    engagement: 3-6-6
+17:
+    name: Noble Cavalry
+    engagement: 5-5-6
+18:
+    name: Noblemen
+    engagement: 3-4-4
+    points: 3
+    formation: 3
+    wounds: 1
+19:
+    name: Noblemen
+    engagement: 4-5-5
+20:
+    name: Noblemen
+    engagement: 5-6-6
+21: 
+    name: Slingers
+    shooting: 3-6
+    points: 3
+    formation: 4
+    wounds: 1
+22: 
+    name: Slingers
+    shooting: 3-4
+23: 
+    name: Slingers
+    shooting: 4-5
+24: 
+    name: Slingers
+    shooting: 5-6
+25:
+    name: Warband
+    engagement: 2-2
+    points: 3
+    formation: 4
+    wounds: 1
+26:
+    name: Warband
+    engagement: 3-3
+27:
+    name: Warband
+    engagement: 4-4
+28:
+    name: Warband
+    engagement: 5-5
+29:
+    name: Warband
+    engagement: 6-6
+30:
+    name: Warchief
+    points: 5
+    formation: 2
+    wounds: 1
+    powers:
+    - +2 Engagement
